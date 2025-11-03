@@ -1,4 +1,84 @@
 <!DOCTYPE html>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script> 
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+  <style type="text/css">
+
+  hr
+  {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  }
+
+  td.dl-link {
+    height: 160px;
+    text-align: center;
+    font-size: 22px;
+  }
+
+  .disclaimerbox {
+    background-color: #eee;   
+    border: 1px solid #eeeeee;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+    padding: 20px;
+  }
+
+    .layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+      box-shadow:
+      0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+      5px 5px 0 0px #fff, /* The second layer */
+      5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+      10px 10px 0 0px #fff, /* The third layer */
+      10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+      15px 15px 0 0px #fff, /* The fourth layer */
+      15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+      20px 20px 0 0px #fff, /* The fifth layer */
+      20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+      25px 25px 0 0px #fff, /* The fifth layer */
+      25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+      margin-left: 10px;
+      margin-right: 45px;
+    }
+
+    .paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+      box-shadow:
+      0px 0px 1px 1px rgba(0,0,0,0.35); /* The top layer shadow */
+
+      margin-left: 10px;
+      margin-right: 45px;
+    }
+
+
+    .layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+      box-shadow:
+      0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+      5px 5px 0 0px #fff, /* The second layer */
+      5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+      10px 10px 0 0px #fff, /* The third layer */
+      10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
+      margin-top: 5px;
+      margin-left: 10px;
+      margin-right: 30px;
+      margin-bottom: 5px;
+    }
+    
+    .vert-cent {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+
+  section:nth-of-type(odd) {
+  background-color: #f7f7f7;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+    
+  </style>
+
 <html>
 <head>
   <meta charset="utf-8">
@@ -39,6 +119,19 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+  <!-- MathJax for rendering LaTeX formulas -->
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 
@@ -52,75 +145,58 @@
   </div>
   <div class="navbar-menu">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://keunhong.com">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
 
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://hypernerf.github.io">
-            HyperNeRF
-          </a>
-          <a class="navbar-item" href="https://nerfies.github.io">
-            Nerfies
-          </a>
-          <a class="navbar-item" href="https://latentfusion.github.io">
-            LatentFusion
-          </a>
-          <a class="navbar-item" href="https://photoshape.github.io">
-            PhotoShape
-          </a>
-        </div>
-      </div>
     </div>
 
   </div>
 </nav>
-
 
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Nerfies: Deformable Neural Radiance Fields</h1>
+          <h1 class="title is-1 publication-title" style="background: linear-gradient(to right, #6366f1, #ec4899); -webkit-background-clip: text; color: transparent; font-weight: 700;">
+            Reasoning Model Unlearning: Forgetting Traces, Not Just Answers, While Preserving Reasoning Skills
+          </h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://keunhong.com">Keunhong Park</a><sup>1</sup>,</span>
+              <a href="https://changshengwang.me/">Changsheng Wang</a><sup>1,*</sup>,</span>
             <span class="author-block">
-              <a href="https://utkarshsinha.com">Utkarsh Sinha</a><sup>2</sup>,</span>
+              <a href="https://chongyu-fan.netlify.app/">Chongyu Fan</a><sup>1,*</sup>,</span>
             <span class="author-block">
-              <a href="https://jonbarron.info">Jonathan T. Barron</a><sup>2</sup>,
+              <a href="https://www.yihua-zhang.com/">Yihua Zhang</a><sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="http://sofienbouaziz.com">Sofien Bouaziz</a><sup>2</sup>,
+              <a href="https://jinghanjia.netlify.app/">Jinghan Jia</a><sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="https://www.danbgoldman.com">Dan B Goldman</a><sup>2</sup>,
+              <a href="https://research.ibm.com/people/dennis-wei">Dennis Wei</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              <a href="https://homes.cs.washington.edu/~seitz/">Steven M. Seitz</a><sup>1,2</sup>,
+              <a href="https://rithram.github.io/">Parikshit Ram</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              <a href="http://www.ricardomartinbrualla.com">Ricardo Martin-Brualla</a><sup>2</sup>
+              <a href="https://research.ibm.com/people/nathalie-baracaldo-angel">Nathalie Baracaldo</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://lsjxjtu.github.io/">Sijia Liu</a><sup>1,2</sup>,
             </span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>University of Washington,</span>
-            <span class="author-block"><sup>2</sup>Google Research</span>
+            <span class="author-block"><sup>1</sup>Michigan State University,</span>
+            <span class="author-block"><sup>2</sup>IBM Research</span>
+          </div>
+          <div class="is-size-6 has-text-grey">
+            <span class="author-block"><sup>*</sup> Equal contribution</span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2011.12948"
+                <a href="https://arxiv.org/pdf/2506.12963"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -129,7 +205,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2011.12948"
+                <a href="https://arxiv.org/abs/2506.12963"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -138,18 +214,9 @@
                 </a>
               </span>
               <!-- Video Link. -->
-              <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/google/nerfies"
+                <a href="https://github.com/OPTML-Group/Unlearn-R2MU"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -157,15 +224,7 @@
                   <span>Code</span>
                   </a>
               </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href="https://github.com/google/nerfies/releases/tag/0.1"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
-                  </a>
+
             </div>
 
           </div>
@@ -175,283 +234,351 @@
   </div>
 </section>
 
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-        free-viewpoint
-        portraits.
-      </h2>
-    </div>
-  </div>
-</section>
 
 
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
+
 
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
+    <!-- Abstract -->
+    <div class="columns is-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+        <h2 class="title is-3 has-text-centered">Abstract</h2>
+        <hr>
         <div class="content has-text-justified">
           <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
-          </p>
-          <p>
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
-          </p>
-          <p>
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
+            Recent advances in large reasoning models (LRMs) have enabled strong chain-of-thought (CoT) generation through test-time computation.
+            While these multi-step reasoning capabilities represent a major milestone in language model performance, they also introduce new safety risks.
+            In this work, we present the first systematic study to revisit the problem of machine unlearning in the context of LRMs.
+            Machine unlearning refers to the process of removing the influence of sensitive, harmful, or undesired data or knowledge from a trained model without full retraining.
+            We show that conventional unlearning algorithms, originally designed for non-reasoning models, are inadequate for LRMs.
+            In particular, even when final answers are successfully erased, sensitive information often persists within the intermediate reasoning steps, i.e., CoT trajectories.
+            To address this challenge, we extend conventional unlearning and propose
+            <strong>Reasoning-aware Representation Misdirection for Unlearning</strong> ($R^2MU$),
+            a novel method that effectively suppresses sensitive reasoning traces and prevents the generation of associated final answers,
+            while preserving the model's reasoning ability.
+            Our experiments demonstrate that $R^2MU$ significantly reduces sensitive information leakage within reasoning traces
+            and achieves strong performance across both safety and reasoning benchmarks,
+            evaluated on state-of-the-art models such as DeepSeek-R1-Distill-LLaMA-8B and DeepSeek-R1-Distill-Qwen-14B.
           </p>
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-    <!--/ Paper video. -->
   </div>
 </section>
+
+
+
 
 
 <section class="section">
-  <div class="container is-max-desktop">
+  <div class="columns is-centered">
+    <div class="column is-four-fifths">
+    <h2 class="title is-3 has-text-centered">Can Existing Unlearning Adapt to LRMs?</h2>
+    <hr>
+      <div class="hero-body">
 
-    <div class="columns is-centered">
+<center>
+  <img class="round" style="width:100%; border-radius:12px;" src="./static/images/intro_figure.png"/>
+  <br>
+  <p style="font-size:24px; color:#444; margin-top:4px;">
+    Figure: Demonstration of LRM unlearning challenges.
+  </p>
+</center>
 
-      <!-- Visual Effects. -->
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
-          <p>
-            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-            would be impossible without nerfies since it would require going through a wall.
-          </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <!--/ Visual Effects. -->
+        <br>
+<ul style="margin:0; padding-left:1.2em;">
+  <li>
+    <p style="margin:0; font-size:20px;">
+      <span style="color:#c00; font-weight:700;">Challenge I:</span>
+      <span style="font-weight:700;"> Existing unlearning fails to “unthink.”</span>
+      <span style="font-weight:400;">
+        Current unlearning methods effectively sanitize final outputs but fail to eliminate
+        sensitive information embedded within the reasoning traces of LRM<span style="white-space:nowrap;">s.</span>
+      </span>
+    </p>
+  </li>
+</ul>
 
-      <!-- Matting. -->
-      <div class="column">
-        <h2 class="title is-3">Matting</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
-            </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
+        <br>
 
-        </div>
-      </div>
-    </div>
-    <!--/ Matting. -->
+<ul style="margin:0; padding-left:1.2em;">
+  <li>
+    <p style="margin:0; font-size:20px;">
+      <span style="color:#c00; font-weight:700;">Challenge II:</span>
+      <span style="font-weight:700;"> Degradation of reasoning ability.</span>
+      <span style="font-weight:400;">
+        Current unlearning methods substantially degrade the reasoning capability of LRMs.<span style="white-space:nowrap;"></span>
+      </span>
+    </p>
+  </li>
+</ul>
 
-    <!-- Animation. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
-
-        <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
-        <div class="content has-text-justified">
-          <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
-          </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
-            </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
-          </div>
-        </div>
-        <br/>
-        <!--/ Interpolating. -->
-
-        <!-- Re-rendering. -->
-        <h3 class="title is-4">Re-rendering the input video</h3>
-        <div class="content has-text-justified">
-          <p>
-            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-            viewpoint such as a stabilized camera by playing back the training deformations.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/videos/replay.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <!--/ Re-rendering. -->
+        <br>
 
       </div>
     </div>
-    <!--/ Animation. -->
+  </div>
+</section>
 
 
-    <!-- Concurrent Work. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
 
-        <div class="content has-text-justified">
-          <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
+<section class="section">
+  <div class="columns is-centered">
+    <div class="column is-four-fifths">
+      <h2 class="title is-3 has-text-centered">A New Evaluation Framework for Reasoning-based Unlearning</h2>
+      <hr>
+
+      <div class="columns is-vcentered">
+        <!-- Left: Pie chart -->
+        <div class="column is-one-third has-text-centered">
+          <img class="round" style="width:100%; max-width:350px; border-radius:12px;" src="./static/images/pie.png" alt="Unthinking categories pie chart">
+          <p style="font-size:14px; color:#555; margin-top:8px;">
+            <b>Figure:</b> Distribution of reasoning traces into unthinking categories (C1–C4) on the WMDP benchmark after applying RMU for LRM unlearning.
+            Categories C2–C4 indicate varying levels of sensitive information leakage, while only C1 is considered successful unthinking.
+            19.7% of evaluation samples fall into C2–C4, indicating unsafe forgetting.
           </p>
-          <p>
-            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
+        </div>
+
+        <!-- Right: Text description -->
+        <div class="column is-two-thirds">
+          <p class="is-size-5 has-text-justified" style="line-height:1.6;">
+            Existing unlearning evaluation focuses primarily on final answers, which fails to capture the leakage of sensitive information embedded within <i>reasoning traces</i>.
+            To address this, we analyze the degree of sensitive information leakage in reasoning traces of unlearned LRMs, classifying each reasoning trace into one of four categories based on its unthinking behavior.
           </p>
-          <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-            both use deformation fields to model non-rigid scenes.
+
+          <br>
+
+          <p style="font-size:16px; line-height:1.6;">
+            <b>(C1)</b> contains <i>irrelevant content</i>, or <i>unrelated reasoning</i>;<br>
+            <b>(C2)</b> introduces <i>indirect factual or inferential knowledge</i> relevant to the sensitive question or answer;<br>
+            <b>(C3)</b> correctly <i>eliminates one or more incorrect options</i>;<br>
+            <b>(C4)</b> <i>indicates, supports, or analyzes</i> the correct answer.
           </p>
-          <p>
-            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-          </p>
-          <p>
-            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
+
+          <br>
+
+          <p class="is-italic" style="font-size:20px; color:#333;">
+            Categories C2–C4 reflect varying degrees of sensitive information leakage, indicating that <b>unthinking</b> remains an unsolved challenge for reasoning-based unlearning.
           </p>
         </div>
       </div>
     </div>
-    <!--/ Concurrent Work. -->
+  </div>
+</section>
+
+
+<section class="section" style="padding: 2rem 0 1.5rem 0;">
+  <div class="container" style="max-width: 1100px;">
+    <h2 class="title is-3 has-text-centered" style="margin-bottom: 0.3rem;">
+      Lessons Learned from Think Intervention:
+    </h2>
+    <h2 class="title is-3 has-text-centered" style="margin-top: 0;">
+      ZeroThink and the Reflection Token Penalty
+    </h2>
+    <hr style="margin: 1rem 0;">
+
+    <div class="columns is-vcentered" style="align-items: flex-start; margin-bottom: 0;">
+      <!-- Left column -->
+      <div class="column is-two-thirds" style="padding-right: 1.5rem;">
+        <p style="font-size: 20px; line-height: 1.6; margin-bottom: 0.8em;">
+          <b>(1) ZeroThink (ZT):</b> Enforces a response prefix consisting of an empty thought segment 
+          <code>&lt;think&gt;&lt;/think&gt;</code>.
+        </p>
+        <p style="font-size: 20px; line-height: 1.6; margin-bottom: 0.6em;">
+          <b>(2) Reflection Token Penalty (RTP):</b> Suppresses reflection token generation 
+          (e.g., <code>&lt;wait&gt;</code>, <code>&lt;but&gt;</code>, <code>&lt;Hmm&gt;</code>) 
+          to promote <i>unthinking</i>.
+        </p>
+
+        <!-- Takeaways directly below -->
+        <div style="margin-top: 0.5rem;">
+          <p style="font-size: 21px; font-weight: 700; color: #006400; margin-bottom: 0.3em;">Takeaways:</p>
+          <p style="font-size: 20px; line-height: 1.6; margin: 0;">
+            (1) Token-level interventions (e.g., forcing <code>&lt;think&gt;&lt;/think&gt;</code> or penalizing reflection words) 
+            do not solve unthinking.<br>
+            (2) While suppressing surface-level tokens, reasoning traces still leak sensitive information.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right column: Fixed-size figure -->
+      <div class="column is-one-third has-text-centered" style="padding-left: 1.5rem;">
+        <div style="width:100%; max-width:360px; height:260px; display:flex; align-items:center; justify-content:center; margin:0 auto;">
+          <img 
+            src="./static/images/category_distribution_safe_unsafe.png"
+            alt="ZeroThink and Reflection Token Penalty results"
+            style="width:100%; height:auto; max-height:250px; border-radius:10px; object-fit:contain; display:block;"
+          />
+        </div>
+        <p style="font-size: 14px; color: #555; line-height: 1.4; margin-top: 6px;">
+          <b>Figure 2.</b> Reasoning trace safety category-wise distribution of RMU, RMU w/ ZT, and RMU w/ RTP 
+          using LRM, evaluated by GPT-o3-mini. 
+          Cases are grouped by sensitivity leakage, where <b>safe</b> indicates successful unthinking and 
+          <b>unsafe</b> reflects harmful information leakage in reasoning trace.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<section class="section" style="padding: 2rem 0 1.5rem 0;">
+  <div class="container" style="max-width: 1100px;">
+    <!-- Title -->
+    <h2 class="title is-3 has-text-centered" style="margin-bottom: 0.3rem;">
+      <span style="font-variant: small-caps;">R<sup>2</sup>MU</span>: Toward Effective Unthinking with Reasoning Preservation
+    </h2>
+    <hr style="margin: 1rem 0;">
+
+    <!-- Component 1 -->
+    <p style="font-size: 18px; line-height: 1.6; margin-bottom: 1em;">
+      <b style="font-size:20px;">Component 1: Unthinking via reasoning trace representation misdirection.</b> 
+      Given a forget sample <i>x</i>, we split it into <i>N</i> token-level segments and prepend each with a reasoning trigger 
+      to generate CoT traces <i>r<sub>1</sub>, … , r<sub>N</sub></i>. 
+      We then apply RMU-style loss<sup>[2]</sup> to align each <i>r<sub>i</sub></i>’s representation with random features:
+    </p>
+
+    <div style="text-align:center; margin: 1.2rem 0;">
+      <img src="./static/images/loss_unthink.png" alt="unthink loss" style="width:55%; max-width:800px;">
+    </div>
+
+    <!-- Component 2 -->
+    <p style="font-size: 18px; line-height: 1.6; margin-bottom: 1em;">
+      <b style="font-size:20px;">Component 2: Reasoning ability preservation via CoT supervision.</b> 
+      We introduce an auxiliary dataset <i>D<sub>CoT</sub></i> 
+      (e.g., a math reasoning dataset such as LIMO<sup>[3]</sup>) 
+      where <i>r ∈ D<sub>CoT</sub></i> denotes the CoT explanation paired with each question, 
+      to preserve reasoning ability in line with RMU’s utility preservation strategy:
+    </p>
+
+    <div style="text-align:center; margin: 1.2rem 0;">
+      <img src="./static/images/loss_cot.png" alt="cot loss" style="width:53%; max-width:800px;">
+    </div>
+
+    <!-- Joint objective -->
+    <p style="font-size: 18px; line-height: 1.6; margin-bottom: 1em;">
+      <b style="font-size:20px;">Full Objective:</b> 
+      The final <span style="font-variant: small-caps;">R<sup>2</sup>MU</span> objective combines both unthinking and CoT supervision losses:
+    </p>
+
+    <div style="text-align:center; margin: 1.2rem 0;">
+      <img src="./static/images/loss_total.png" alt="r2mu total loss" style="width:80%; max-width:800px;">
+    </div>
 
   </div>
 </section>
 
+
+<section class="section" style="padding: 2rem 0 1.5rem 0;">
+  <div class="container" style="max-width: 1100px;">
+    <!-- Title -->
+    <h2 class="title is-3 has-text-centered" style="margin-bottom: 0.3rem;">
+      Effectiveness of <span style="font-variant: small-caps;">R<sup>2</sup>MU</span> on WMDP Dataset
+    </h2>
+    <hr style="margin: 1rem 0;">
+
+    <!-- Figure centered -->
+    <div style="text-align:center; margin: 1.2rem 0;">
+      <img 
+        src="./static/images/exp.png" 
+        alt="Effectiveness of R2MU on WMDP"
+        style="width:85%; max-width:850px; border-radius:10px; display:inline-block;"
+      />
+      <p style="font-size: 14px; color: #555; line-height: 1.4; margin-top: 6px;">
+        <b>Figure.</b> Performance overview of <span style="font-variant: small-caps;">R<sup>2</sup>MU</span> 
+        on WMDP across two reasoning LLMs (DeepSeek-R1-Distill-LLaMA-8B and Qwen-14B).
+      </p>
+    </div>
+
+    <!-- Experiment Settings -->
+    <p style="font-size: 18px; line-height: 1.6; margin-top: 1.2rem;">
+      <b style="font-size: 20px;">Experiment Settings.</b> 
+      We evaluate <span style="font-variant: small-caps;">R<sup>2</sup>MU</span> on WMDP across 
+      DeepSeek-R1-Distill-LLaMA-8B and Qwen-14B, comparing unlearning effectiveness (FA-UA, RT-UA), 
+      reasoning ability (AIME-2024, MATH-500, GPQA-Diamond), and general utility (MMLU) 
+      against RMU, RMU w/ ZT, RMU w/ RTP, and R²MU-v0.
+    </p>
+
+    <!-- Conclusion -->
+    <div style="margin-top: 1.5rem;">
+      <p style="font-size: 18px; font-weight: 700; margin-bottom: 0.6rem;">
+        Conclusion: <span style="font-weight: 400;">Our findings reveal significant insights.</span>
+      </p>
+
+      <ul style="list-style: none; padding-left: 0; font-size: 17px; line-height: 1.6; margin-top: 0.5rem;">
+        <li style="margin-bottom: 0.4rem;">
+          ⚡ <b>Selective reasoning-trace forgetting:</b> 
+          <span style="font-weight: 400;">
+            <span style="font-variant: small-caps;">R<sup>2</sup>MU</span> achieves the lowest RT-UA without 
+            compromising FA-UA, outperforming all baselines.
+          </span>
+        </li>
+        <li style="margin-bottom: 0.4rem;">
+          ⚡ <b>Preserved reasoning ability:</b> 
+          <span style="font-weight: 400;">
+            Unlike R²MU-v0, which collapses on reasoning benchmarks, 
+            <span style="font-variant: small-caps;">R<sup>2</sup>MU</span> maintains strong reasoning performance.
+          </span>
+        </li>
+        <li>
+          ⚡ <b>Balanced performance–utility trade-off:</b> 
+          <span style="font-weight: 400;">
+            While slightly increasing training cost, 
+            <span style="font-variant: small-caps;">R<sup>2</sup>MU</span> achieves a superior balance between 
+            unlearning precision, reasoning competence, and model utility.
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section" id="Paper">
+  <div class="container is-max-desktop content">
+    <table align="center" width="600px">
+      <h2 class="is-centered has-text-centered">Paper</h2>
+      <hr>
+      <tr>
+        <td style="width: 200px; text-align: center;">
+          <a href="https://arxiv.org/pdf/2506.12963">
+            <img class="layered-paper-big" style="height:175px; border-radius: 10px;" src="./static/images/cover.png" alt="Paper cover"/>
+          </a>
+        </td>
+        <td style="padding-left: 20px;">
+          <span style="font-size:18px; line-height:1.6;">
+            <b>Changsheng Wang</b>, Chongyu Fan, Yihua Zhang, Jinghan Jia, Dennis Wei, Parikshit Ram, Nathalie Baracaldo, Sijia Liu.<br>
+            <b>Reasoning Model Unlearning: Forgetting Traces, Not Just Answers, While Preserving Reasoning Skills.</b><br>
+            (<a href="https://arxiv.org/abs/2506.12963" target="_blank">EMNLP</a>, 2025)<br>
+          </span>
+        </td>
+      </tr>
+    </table>
+  </div>
+</section>
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
+    <pre><code>@article{wang2025reasoning,
+  title={Reasoning Model Unlearning: Forgetting Traces, Not Just Answers, While Preserving Reasoning Skills},
+  author={Wang, Changsheng and Fan, Chongyu and Zhang, Yihua and Jia, Jinghan and Wei, Dennis and Ram, Parikshit and Baracaldo, Nathalie and Liu, Sijia},
+  journal={arXiv preprint arXiv:2506.12963},
+  year={2025}
 }</code></pre>
   </div>
 </section>
+
+
+
 
 
 <footer class="footer">
