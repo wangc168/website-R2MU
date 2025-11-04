@@ -502,7 +502,7 @@ window.MathJax = {
         style="width:85%; max-width:850px; border-radius:10px; display:inline-block;"
       />
       <p style="font-size: 14px; color: #555; line-height: 1.4; margin-top: 6px;">
-        <b>Figure.</b> Performance overview of <span style="font-variant: small-caps;">R<sup>2</sup>MU</span> 
+        <b>Table.</b> Performance overview of <span style="font-variant: small-caps;">R<sup>2</sup>MU</span> 
         on WMDP across two reasoning LLMs (DeepSeek-R1-Distill-LLaMA-8B and Qwen-14B).
       </p>
     </div>
@@ -551,6 +551,70 @@ window.MathJax = {
 </section>
 
 
+<section class="section" style="padding: 2rem 0 1.5rem 0;">
+  <div class="container" style="max-width: 1100px;">
+    <!-- Title -->
+    <h2 class="title is-3 has-text-centered" style="margin-bottom: 0.3rem;">
+      Effectiveness of <span style="font-variant: small-caps;">R<sup>2</sup>MU</span> in LRM Safety Enhancement
+    </h2>
+    <hr style="margin: 1rem 0;">
+
+    <!-- Figure/Table centered -->
+    <div style="text-align:center; margin: 1.2rem 0;">
+      <img 
+        src="./static/images/safety.png" 
+        alt="R2MU LRM safety enhancement"
+        style="width:85%; max-width:850px; border-radius:10px; display:inline-block;"
+      />
+      <p style="font-size: 14px; color: #555; line-height: 1.4; margin-top: 6px;">
+        <b>Table.</b> Comparison of unlearning methods across two models with respect to unlearning efficacy 
+        , 
+        reasoning ability, and general utility. 
+        <span style="font-variant: small-caps;">R<sup>2</sup>MU</span> (Ours) significantly improves safety while maintaining 
+        competitive reasoning and utility performance.
+      </p>
+    </div>
+
+    <!-- Experiment Description -->
+    <p style="font-size: 18px; line-height: 1.6; margin-top: 1.2rem;">
+      <b style="font-size: 20px;">Performance of R<sup>2</sup>MU in LRM Safety Enhancement.</b> 
+      We perform LRM unlearning using the STAR-1 dataset to assess its potential for enhancing LRM safety. 
+      <span style="font-variant: small-caps;">R<sup>2</sup>MU</span> is compared with other unlearning baselines across three dimensions: 
+      unlearning efficacy (measured by safety rate on <i>StrongReject</i>, <i>JBB</i>, and <i>WildJailbreak</i>), 
+      general utility (<i>MMLU</i>), and reasoning ability (<i>AIME 2024</i>, <i>MATH-500</i>, <i>GPQA Diamond</i>).
+    </p>
+
+
+    <!-- Summary/Conclusion -->
+    <div style="margin-top: 1.5rem;">
+      <p style="font-size: 18px; font-weight: 700; margin-bottom: 0.6rem;">
+        Conclusion: <span style="font-weight: 400;">R<sup>2</sup>MU enhances safety without trade-offs.</span>
+      </p>
+
+      <ul style="list-style: none; padding-left: 0; font-size: 17px; line-height: 1.6; margin-top: 0.5rem;">
+        <li style="margin-bottom: 0.4rem;">
+          🧠 <b>Stronger safety robustness:</b> 
+          <span style="font-weight: 400;">
+            15–25% safety gain across major jailbreak benchmarks.
+          </span>
+        </li>
+        <li style="margin-bottom: 0.4rem;">
+          💡 <b>Preserved reasoning and utility:</b> 
+          <span style="font-weight: 400;">
+            No significant loss in MMLU, AIME-2024, or GPQA performance.
+          </span>
+        </li>
+        <li>
+          🔒 <b>Effective reasoning-trace unlearning:</b> 
+          <span style="font-weight: 400;">
+            Demonstrates broad applicability of reasoning-aware forgetting for safer LRMs.
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 
 <section class="section" id="Paper">
   <div class="container is-max-desktop content">
@@ -575,18 +639,23 @@ window.MathJax = {
   </div>
 </section>
 
+
+
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{wang2025reasoning,
-  title={Reasoning Model Unlearning: Forgetting Traces, Not Just Answers, While Preserving Reasoning Skills},
-  author={Wang, Changsheng and Fan, Chongyu and Zhang, Yihua and Jia, Jinghan and Wei, Dennis and Ram, Parikshit and Baracaldo, Nathalie and Liu, Sijia},
-  journal={arXiv preprint arXiv:2506.12963},
-  year={2025}
+    <pre><code>@inproceedings{wang-etal-2025-reasoning,
+    title = "Reasoning Model Unlearning: Forgetting Traces, Not Just Answers, While Preserving Reasoning Skills",
+    author = "Wang, Changsheng  and Fan, Chongyu  and Zhang, Yihua  and Jia, Jinghan  and Wei, Dennis  and Ram, Parikshit  and Baracaldo, Nathalie  and Liu, Sijia",
+    booktitle = "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2025",
+    publisher = "Association for Computational Linguistics",
+    pages = "4427--4443",
+    ISBN = "979-8-89176-332-6",
 }</code></pre>
   </div>
 </section>
-
 
 
 
